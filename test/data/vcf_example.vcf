@@ -1,0 +1,11 @@
+##fileformat=VCFv4.3
+##contig=<ID=1,length=100000>
+##contig=<ID=2,length=100000>
+##FORMAT=<ID=GT,Number=1,Type=String,Description="Genotype">
+##FORMAT=<ID=GQ,Number=1,Type=Integer,Description="Genotype Quality">
+##FORMAT=<ID=DP,Number=1,Type=Integer,Description="Read Depth">
+#CHROM	POS	ID	REF	ALT	QUAL	FILTER	INFO	FORMAT	SAMPLE1	SAMPLE2	SAMPLE3	SAMPLE4
+1	10000	rs1	A	G	.	.	.	GT:GQ:DP	0/0:30:10	0/1:25:8	1/1:35:15	./.:0:0
+1	20000	rs2	C	T	.	.	.	GT:GQ:DP	0/1:40:12	0/1:5:3	0/0:30:10	1/1:28:9
+1	30000	rs3	G	A	.	.	.	GT:GQ:DP	1/1:45:20	./.:0:0	0/1:20:7	0/0:35:11
+2	15000	rs4	T	C	.	.	.	GT:GQ:DP	0/0:50:25	0/0:30:10	0/1:15:5	1/1:40:18
