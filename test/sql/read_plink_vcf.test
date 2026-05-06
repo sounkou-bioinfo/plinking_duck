@@ -151,3 +151,15 @@ SELECT COUNT(*) FROM (
 );
 ----
 0
+
+# --- Compressed VCF (.vcf.gz) ---
+
+query I
+SELECT COUNT(*) FROM read_plink_vcf('test/data/example.vcf.gz');
+----
+4
+
+query TT
+SELECT ID, genotypes FROM read_plink_vcf('test/data/example.vcf.gz') WHERE ID = 'rs1';
+----
+rs1	[0, 1, 2, NULL]

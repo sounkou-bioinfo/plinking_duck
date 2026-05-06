@@ -198,7 +198,7 @@ static unique_ptr<FunctionData> VcfBind(ClientContext &context, TableFunctionBin
 
 	// --- Parse the VCF header ---
 	auto &fs = FileSystem::GetFileSystem(context);
-	auto handle = fs.OpenFile(bind_data->file_path, FileFlags::FILE_FLAGS_READ);
+	auto handle = fs.OpenFile(bind_data->file_path, FileFlags::FILE_FLAGS_READ | FileCompressionType::AUTO_DETECT);
 
 	string line;
 	bool found_header = false;
@@ -368,7 +368,7 @@ static unique_ptr<GlobalTableFunctionState> VcfInitGlobal(ClientContext &context
 	// in all VFS implementations, we store the first data line in line_buf
 	// for the scan function to pick up.
 	auto &fs = FileSystem::GetFileSystem(context);
-	state->file_handle = fs.OpenFile(bind_data.file_path, FileFlags::FILE_FLAGS_READ);
+	state->file_handle = fs.OpenFile(bind_data.file_path, FileFlags::FILE_FLAGS_READ | FileCompressionType::AUTO_DETECT);
 
 	string line;
 	while (ReadLineFromHandle(*state->file_handle, line)) {
